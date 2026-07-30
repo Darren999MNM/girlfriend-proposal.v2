@@ -52,6 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Show only the letter first
 letterSection.style.display = "block";
 
+timelineSection.style.display = "none";
+gallerySection.style.display = "none";
+videoSection.style.display = "none";
+voiceSection.style.display = "none";
+endingSection.style.display = "none";
+
         // Start music
         if (storyMusic) {
             storyMusic.volume = 0;
@@ -210,14 +216,11 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealSections.forEach((section) => {
 
-    section.style.display = "block";
+    section.style.display = "none";
     section.style.opacity = "0";
     section.style.transform = "translateY(40px)";
 
-    revealObserver.observe(section);
-
 });
-
 /*==================================
 LETTER PARAGRAPH FADE-IN
 ==================================*/
