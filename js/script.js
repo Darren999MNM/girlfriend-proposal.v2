@@ -5,6 +5,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
 const loader = document.getElementById("loader");
 const intro = document.getElementById("intro");
 const startButton = document.getElementById("startButton");
@@ -29,149 +30,217 @@ const transition = document.getElementById("transitionSection");
 
 const fade = document.getElementById("screenFade");
 
+
 /*==================================
 LOADER
 ==================================*/
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-    setTimeout(() => {
+setTimeout(()=>{
 
-        loader.classList.add("loaderHide");
+if(loader){
 
-        loader.style.display = "none";
+loader.classList.add("loaderHide");
 
-    },2500);
+setTimeout(()=>{
+
+loader.style.display="none";
+
+},800);
+
+}
+
+},2500);
 
 });
+
 
 /*==================================
 START EXPERIENCE
 ==================================*/
 
-startButton.addEventListener("click", async () => {
+if(startButton){
+
+startButton.addEventListener("click",async()=>{
+
 
 try{
 
-openingMusic.volume = 0.45;
+if(openingMusic){
+
+openingMusic.volume=0.45;
 
 await openingMusic.play();
 
-}catch(e){
+}
 
-console.log(e);
+}catch(error){
+
+console.log("Audio error:",error);
 
 }
 
+
+if(intro){
+
 intro.classList.add("hide");
+
+}
+
+
+if(countdown){
 
 countdown.classList.remove("hidden");
 countdown.classList.add("show");
 
+}
+
+
 startCountdown();
 
+
 });
-function startCountdown() {
-    let count = 3;
 
-    const countdownElement = document.getElementById("countdown");
 
-    if (!countdownElement) {
-        console.log("Countdown element not found");
-        return;
-    }
-
-    countdownElement.style.display = "block";
-
-    const timer = setInterval(() => {
-        countdownElement.textContent = count;
-
-        count--;
-
-        if (count < 0) {
-            clearInterval(timer);
-            countdownElement.style.display = "none";
-
-            startExperience(); // starts your website after countdown
-        }
-    }, 1000);
 }
+
+
 /*==================================
 COUNTDOWN
 ==================================*/
 
+
 function startCountdown(){
 
-let count = 3;
 
-countNumber.textContent = count;
+let count=3;
 
-const timer = setInterval(()=>{
+
+if(countNumber){
+
+countNumber.textContent=count;
+
+}
+
+
+const timer=setInterval(()=>{
+
 
 count--;
 
-if(count > 0){
 
-countNumber.textContent = count;
+if(count>0){
+
+
+if(countNumber){
+
+countNumber.textContent=count;
+
+}
+
 
 }
 
-else if(count === 0){
 
-countNumber.textContent = "💕";
+else if(count===0){
+
+
+if(countNumber){
+
+countNumber.textContent="💕";
 
 }
+
+
+}
+
 
 else{
 
+
 clearInterval(timer);
+
+
+
+if(countdown){
 
 countdown.classList.remove("show");
 countdown.classList.add("hide");
 
+}
+
+
 showHeartbeat();
 
+
 }
+
 
 },1200);
 
+
 }
+
+
 
 /*==================================
 HEARTBEAT
 ==================================*/
 
+
 function showHeartbeat(){
 
+
+if(!heartbeat) return;
+
+
 heartbeat.classList.remove("hidden");
+
 heartbeat.classList.add("show");
+
 
 setTimeout(()=>{
 
+
 heartbeat.classList.remove("show");
+
 heartbeat.classList.add("hide");
+
 
 showProposal();
 
+
 },4200);
 
+
 }
+
+
 
 /*==================================
 PROPOSAL
 ==================================*/
 
+
 function showProposal(){
 
+
+if(!proposal) return;
+
+
 proposal.classList.remove("hidden");
+
 proposal.classList.add("show");
+
 
 }
 /*==================================
 ESCAPING NO BUTTON
 ==================================*/
 
-const funnyMessages = [
+
+const funnyMessages=[
 
 "😂 Nice try!",
 
@@ -185,27 +254,42 @@ const funnyMessages = [
 
 ];
 
-let noAttempts = 0;
+
+let noAttempts=0;
+
 
 function moveNoButton(){
 
-const area = document.querySelector(".buttonArea");
+
+if(!noBtn) return;
+
+
+const area=document.querySelector(".buttonArea");
+
 
 if(!area) return;
 
-const maxX = area.clientWidth - noBtn.offsetWidth;
 
-const maxY = area.clientHeight - noBtn.offsetHeight;
 
-const randomX = Math.max(0,Math.random()*maxX);
+const maxX=area.clientWidth-noBtn.offsetWidth;
 
-const randomY = Math.max(0,Math.random()*maxY);
+const maxY=area.clientHeight-noBtn.offsetHeight;
+
+
+
+const randomX=Math.max(0,Math.random()*maxX);
+
+const randomY=Math.max(0,Math.random()*maxY);
+
+
 
 noBtn.style.position="absolute";
 
 noBtn.style.left=randomX+"px";
 
 noBtn.style.top=randomY+"px";
+
+
 
 if(noAttempts<funnyMessages.length){
 
@@ -215,9 +299,16 @@ noAttempts++;
 
 }
 
+
 }
 
+
+
+if(noBtn){
+
+
 noBtn.addEventListener("mouseenter",moveNoButton);
+
 
 noBtn.addEventListener("touchstart",(e)=>{
 
@@ -227,38 +318,91 @@ moveNoButton();
 
 });
 
+
+}
+
+
+
+
 /*==================================
 YES BUTTON
 ==================================*/
 
-let hasAnswered = false;
+
+let hasAnswered=false;
+
+
+
+if(yesBtn){
+
 
 yesBtn.addEventListener("click",()=>{
 
-    if(hasAnswered) return;
 
-    hasAnswered = true;
+if(hasAnswered) return;
 
-    launchFireworks();
 
-    proposal.classList.remove("show");
-    proposal.classList.add("hide");
+hasAnswered=true;
 
-    yesSection.classList.remove("hidden");
-    yesSection.classList.add("show");
+
+launchFireworks();
+
+
+
+if(proposal){
+
+proposal.classList.remove("show");
+
+proposal.classList.add("hide");
+
+}
+
+
+
+if(yesSection){
+
+yesSection.classList.remove("hidden");
+
+yesSection.classList.add("show");
+
+}
+
+
 
 });
+
+
+}
+
+
+
+
 /*==================================
 FIREWORKS
 ==================================*/
 
+
 function launchFireworks(){
+
+
+if(typeof confetti !== "function"){
+
+console.log("Confetti library not loaded");
+
+return;
+
+}
+
+
 
 const duration=5000;
 
 const end=Date.now()+duration;
 
+
+
 (function frame(){
+
 
 confetti({
 
@@ -272,6 +416,8 @@ angle:60
 
 });
 
+
+
 confetti({
 
 particleCount:5,
@@ -283,6 +429,8 @@ origin:{x:1},
 angle:120
 
 });
+
+
 
 confetti({
 
@@ -300,106 +448,190 @@ y:Math.random()*0.6
 
 });
 
+
+
 if(Date.now()<end){
 
 requestAnimationFrame(frame);
 
 }
 
+
 })();
 
+
 }
+
+
+
+
 /*==================================
-SMOOTH MUSIC FADE
+MUSIC FADE
 ==================================*/
 
-function fadeOutMusic(audio, duration = 2000){
+
+function fadeOutMusic(audio,duration=2000){
+
 
 if(!audio) return;
 
-const step = audio.volume / (duration / 50);
 
-const fade = setInterval(()=>{
 
-if(audio.volume > step){
+const step=audio.volume/(duration/50);
 
-audio.volume -= step;
 
-}else{
 
-audio.volume = 0;
+const fadeTimer=setInterval(()=>{
+
+
+if(audio.volume>step){
+
+
+audio.volume-=step;
+
+
+}
+
+else{
+
+
+audio.volume=0;
 
 audio.pause();
 
-clearInterval(fade);
+clearInterval(fadeTimer);
+
 
 }
+
 
 },50);
 
+
 }
+
+
+
 
 function fadeInMusic(audio,targetVolume=0.45,duration=2000){
 
+
 if(!audio) return;
 
-audio.volume = 0;
+
+
+audio.volume=0;
+
 
 audio.play().catch(()=>{});
 
-const step = targetVolume/(duration/50);
 
-const fade = setInterval(()=>{
 
-if(audio.volume < targetVolume-step){
+const step=targetVolume/(duration/50);
 
-audio.volume += step;
 
-}else{
 
-audio.volume = targetVolume;
+const fadeTimer=setInterval(()=>{
 
-clearInterval(fade);
+
+if(audio.volume<targetVolume-step){
+
+
+audio.volume+=step;
+
 
 }
+
+else{
+
+
+audio.volume=targetVolume;
+
+clearInterval(fadeTimer);
+
+
+}
+
 
 },50);
 
+
 }
 
+
+
+
 /*==================================
-FADE TO NEXT PAGE
+CONTINUE BUTTON
 ==================================*/
+
+
+if(continueBtn){
+
 
 continueBtn.addEventListener("click",()=>{
 
+
 fadeOutMusic(openingMusic,1800);
+
+
+
+if(transition){
 
 transition.classList.remove("hidden");
 
 transition.classList.add("show");
 
+}
+
+
+
+if(fade){
+
 fade.classList.add("active");
+
+}
+
+
 
 setTimeout(()=>{
 
+
 window.location.href="proposal.html";
+
 
 },3000);
 
+
+
 });
+
+
+}
+
+
+
 /*==================================
 KEYBOARD SHORTCUTS
-(Useful for testing)
 ==================================*/
+
 
 document.addEventListener("keydown",(e)=>{
 
-if(e.key==="Enter" && proposal.classList.contains("show")){
+
+if(e.key==="Enter" && proposal && proposal.classList.contains("show")){
+
+
+if(yesBtn){
 
 yesBtn.click();
 
 }
+
+
+}
+
+
 
 if(e.key==="Escape"){
 
@@ -407,84 +639,134 @@ window.location.reload();
 
 }
 
-});
-
-/*==================================
-SAFETY CHECKS
-==================================*/
-
-window.addEventListener("error",(e)=>{
-
-console.log("Script Error:",e.message);
 
 });
 
-/*==================================
-PRELOAD AUDIO
-==================================*/
 
-openingMusic.load();
+
+
+
 /*==================================
 RESET NO BUTTON
 ==================================*/
 
+
 function resetNoButton(){
 
-    noBtn.style.position = "relative";
-    noBtn.style.left = "0";
-    noBtn.style.top = "0";
-    noBtn.textContent = "NO 🙈";
+
+if(!noBtn) return;
+
+
+noBtn.style.position="relative";
+
+noBtn.style.left="0";
+
+noBtn.style.top="0";
+
+noBtn.textContent="NO 🙈";
+
 
 }
-    window.startCountdown = startCountdown;
+
+
+
 
 /*==================================
 PAGE VISIBILITY
 ==================================*/
 
+
 document.addEventListener("visibilitychange",()=>{
 
-    if(document.hidden){
 
-        if(openingMusic && !openingMusic.paused){
+if(document.hidden){
 
-            openingMusic.pause();
 
-        }
+if(openingMusic && !openingMusic.paused){
 
-    }else{
+openingMusic.pause();
 
-        if(openingMusic &&
-           openingMusic.paused &&
-           intro.classList.contains("hide")){
+}
 
-            openingMusic.play().catch(()=>{});
 
-        }
+}
 
-    }
+
+else{
+
+
+if(openingMusic &&
+openingMusic.paused &&
+intro &&
+intro.classList.contains("hide")){
+
+
+openingMusic.play().catch(()=>{});
+
+
+}
+
+
+}
+
 
 });
+
+
+
 
 /*==================================
 INITIAL SETUP
 ==================================*/
 
+
 resetNoButton();
 
+
+
+if(proposal){
+
 proposal.classList.add("hidden");
+
+}
+
+
+if(yesSection){
+
 yesSection.classList.add("hidden");
+
+}
+
+
+if(heartbeat){
+
 heartbeat.classList.add("hidden");
+
+}
+
+
+if(countdown){
+
 countdown.classList.add("hidden");
+
+}
+
+
+if(transition){
+
 transition.classList.add("hidden");
 
-/*==================================
-PREVENT DOUBLE CLICKS
-==================================*/
+}
 
-/*==================================
-END OF FILE
-==================================*/
+
+
+if(openingMusic){
+
+openingMusic.load();
+
+}
+
+
 
 });
     
