@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Girlfriend's Day ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- ==================================================
+BACKGROUND
+=================================================== -->
+
+<div id="stars"></div>
+
+<div id="petals"></div>
+
+<div id="floatingHearts"></div>
+
+<div id="fireflies"></div>
+
+<div id="backgroundDecor">
+
+<div class="gradientGlow glow1"></div>
+
+<div class="gradientGlow glow2"></div>
+
+<div class="gradientGlow glow3"></div>
+
+</div>
+
+<!-- ==================================================
+AUDIO
+=================================================== -->
+
+<audio id="openingMusic" preload="auto">
+
+<source src="music/allmine.mp3" type="audio/mpeg">
+
+</audio>
+
+<audio id="letterMusic" preload="auto">
+
+<source src="music/stayhereforlife.mp3" type="audio/mpeg">
+
+</audio>
+
+<audio id="endingMusic" preload="auto">
+
+<source src="music/newflame.mp3" type="audio/mpeg">
+
+</audio>
+
+<audio id="voiceNote" preload="auto">
+
+<source src="music/voice.m4a" type="audio/mp4">
+
+</audio>
+
+<!-- ==================================================
+LOADER
+=================================================== -->
+
+<div id="loader">
+
+<div class="loader-card glass">
+
+<div class="loader-heart">
+
+❤️
+
+</div>
+
+<h1 class="glow">
+
+For My Princess
+
+</h1>
+
+<p>
+
+Preparing something special...
+
+</p>
+
+<div class="loadingBar">
+
+<div class="loadingFill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+INTRO
+=================================================== -->
+
+<section id="intro">
+
+<div class="introContent glass">
+
+<h2 class="girlfriendDay">
+
+Happy Girlfriend's Day
+
+</h2>
+
+<h1 class="myLove">
+
+Marie Babyyy,
+
+<br>
+
+My Loveee 💕
+
+</h1>
+
+<p class="introText">
+
+I made something especially for you.
+
+Not because today is special...
+
+but because
+
+<b>you</b>
+
+make every day feel special.
+
+Take a deep breath...
+
+Smile...
+
+and touch the button below.
+
+❤️
+
+</p>
+
+<button id="startButton">
+
+💕 Touch the Screen to Begin
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ==================================================
+COUNTDOWN
+=================================================== -->
+
+<section id="countdownSection" class="hidden">
+
+<div class="countdownOverlay"></div>
+
+<div class="countdownContent">
+
+<p class="smallText">
+
+Ready?
+
+</p>
+
+<div id="countNumber">
+
+3
+
+</div>
+
+<p>
+
+Something beautiful is about to happen...
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ==================================================
+HEARTBEAT
+=================================================== -->
+
+<section id="heartbeatScene" class="hidden">
+
+<div class="heartbeatContainer">
+
+<div class="heartBeat">
+
+❤️
+
+</div>
+
+<div class="heartbeatWords">
+
+Every heartbeat whispers...
+
+Marion.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==================================================
+PROPOSAL
+=================================================== -->
+
+<section id="proposalSection" class="hidden">
+
+<div class="proposalOverlay"></div>
+
+<div class="proposalCard glass">
+
+<h1>
+
+Marie Babyyy 💕
+
+</h1>
+
+<h2>
+
+My Loveee ❤️
+
+</h2>
+
+<p class="proposalParagraph">
+
+Before I show you everything I prepared...
+
+I need to ask you something...
+
+</p>
+
+<p class="proposalParagraph">
+
+Will you continue this beautiful journey with me...
+
+and keep letting me love you,
+
+support you,
+
+annoy you,
+
+laugh with you,
+
+grow with you,
+
+and choose you every single day?
+
+</p>
+
+<div class="buttonArea">
+
+<button id="yesBtn">
+
+YES 💕
+
+</button>
+
+<button id="noBtn">
+
+NO 🙈
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- ==================================================
+YES CELEBRATION
+=================================================== -->
+
+<section id="yesSection" class="hidden">
+
+<div class="celebrationCard glass">
+
+<h1>
+
+She Said YES!! 💕
+
+</h1>
+
+<h2>
+
+I knew you'd choose us ❤️
+
+</h2>
+
+<p>
+
+Thank you for choosing me.
+
+Thank you for believing in us.
+
+I promise to keep loving you,
+
+respecting you,
+
+protecting your heart,
+
+making you laugh,
+
+being there on your best days,
+
+and even more on your hardest ones.
+
+Today is only another reminder that
+
+I'd choose you...
+
+every single time.
+
+♾️💕
+
+</p>
+
+<div class="celebrationIcons">
+
+🌹 ❤️ 💍 🫂 ✨
+
+</div>
+
+<button id="continueBtn">
+
+Continue Our Story ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ==================================================
+TRANSITION
+=================================================== -->
+
+<section id="transitionSection" class="hidden">
+
+<div class="transitionContent">
+
+<h1>
+
+One More Thing...
+
+</h1>
+
+<p>
+
+Before we continue...
+
+I wrote something from my heart.
+
+Open it slowly...
+
+❤️
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ==================================================
+SCREEN FADE
+=================================================== -->
+
+<div id="screenFade"></div>
+
+<!-- ==================================================
+PAGE TRANSITION
+=================================================== -->
+
+<div id="pageTransition">
+
+<div class="transitionCircle"></div>
+
+</div>
+
+<!-- ==================================================
+PRELOAD
+=================================================== -->
+
+<div class="preloadAssets">
+
+<img src="images/photo1.jpg" alt="">
+<img src="images/photo2.jpg" alt="">
+<img src="images/photo3.jpg" alt="">
+<img src="images/photo4.jpg" alt="">
+<img src="images/photo5.jpg" alt="">
+<img src="images/photo6.jpg" alt="">
+<img src="images/photo7.jpg" alt="">
+<img src="images/photo8.jpg" alt="">
+<img src="images/photo9.jpg" alt="">
+<img src="images/photo10.jpg" alt="">
+<img src="images/photo11.jpg" alt="">
+<img src="images/photo12.jpg" alt="">
+<img src="images/photo13.jpg" alt="">
+<img src="images/photo14.jpg" alt="">
+<img src="images/photo15.jpg" alt="">
+<img src="images/photo16.jpg" alt="">
+
+<video preload="auto">
+<source src="videos/video1.mp4" type="video/mp4">
+</video>
+
+<video preload="auto">
+<source src="videos/video2.mp4" type="video/mp4">
+</video>
+
+<video preload="auto">
+<source src="videos/video3.mp4" type="video/mp4">
+</video>
+
+<video preload="auto">
+<source src="videos/video4.mp4" type="video/mp4">
+</video>
+
+<video preload="auto">
+<source src="videos/video5.mp4" type="video/mp4">
+</video>
+
+</div>
+<!-- ==================================================
+FOOTER
+=================================================== -->
+
+<footer id="projectFooter">
+
+Made with infinite love ♾️💕
+
+For Marion ❤️
+
+</footer>
+
+<!-- ==================================================
+JAVASCRIPT
+=================================================== -->
+
+<script src="js/audio.js"></script>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
