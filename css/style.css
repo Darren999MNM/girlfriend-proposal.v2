@@ -2702,15 +2702,13 @@ z-index:900;
 
 .loaderHide{
 
-opacity:0;
+    opacity: 0;
 
-visibility:hidden;
+    visibility: hidden;
 
-transition:
+    pointer-events: none;
 
-opacity .8s ease,
-
-visibility .8s ease;
+    display: none !important;
 
 }
 
