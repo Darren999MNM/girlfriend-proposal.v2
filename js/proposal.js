@@ -189,38 +189,38 @@ endingSection.style.display = "none";
 /*==================================
 SECTION REVEAL ANIMATION
 ==================================*/
+/*==================================
+UNLOCK TIMELINE
+==================================*/
 
-const revealSections = document.querySelectorAll(
-    ".timelineSection, .gallerySection, .videoSection, .voiceSection, .endingSection"
-);
+timelineSection.style.opacity = "0";
+timelineSection.style.transform = "translateY(40px)";
+timelineSection.style.transition = "all 1s ease";
 
-const revealObserver = new IntersectionObserver((entries) => {
+window.addEventListener("scroll", () => {
 
-    entries.forEach((entry) => {
+    const letterBottom =
+        letterSection.offsetTop + letterSection.offsetHeight - 200;
 
-        if (entry.isIntersecting) {
+    if (
+        window.scrollY + window.innerHeight >= letterBottom &&
+        timelineSection.style.display === "none"
+    ) {
 
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-            entry.target.style.transition = "all 1s ease";
+        timelineSection.style.display = "block";
 
-        }
+        requestAnimationFrame(() => {
 
-    });
+            timelineSection.style.opacity = "1";
+            timelineSection.style.transform = "translateY(0)";
 
-}, {
+        });
 
-    threshold: 0.15
-
-});
-
-revealSections.forEach((section) => {
-
-    section.style.display = "none";
-    section.style.opacity = "0";
-    section.style.transform = "translateY(40px)";
+    }
 
 });
+
+
 /*==================================
 LETTER PARAGRAPH FADE-IN
 ==================================*/
