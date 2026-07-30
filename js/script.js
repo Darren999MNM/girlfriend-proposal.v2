@@ -71,7 +71,31 @@ countdown.classList.add("show");
 startCountdown();
 
 });
+function startCountdown() {
+    let count = 3;
 
+    const countdownElement = document.getElementById("countdown");
+
+    if (!countdownElement) {
+        console.log("Countdown element not found");
+        return;
+    }
+
+    countdownElement.style.display = "block";
+
+    const timer = setInterval(() => {
+        countdownElement.textContent = count;
+
+        count--;
+
+        if (count < 0) {
+            clearInterval(timer);
+            countdownElement.style.display = "none";
+
+            startExperience(); // starts your website after countdown
+        }
+    }, 1000);
+}
 /*==================================
 COUNTDOWN
 ==================================*/
@@ -462,6 +486,6 @@ END OF FILE
 ==================================*/
 
 });
-
+document.getElementById("startButton").addEventListener("click", startCountdown);
     
 
