@@ -35,11 +35,13 @@ LOADER
 
 window.addEventListener("load", () => {
 
-setTimeout(() => {
+    setTimeout(() => {
 
-loader.classList.add("loaderHide");
+        loader.classList.add("loaderHide");
 
-},2500);
+        loader.style.display = "none";
+
+    },2500);
 
 });
 
