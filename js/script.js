@@ -64,6 +64,7 @@ if(startButton){
 
 startButton.addEventListener("click",async()=>{
 
+console.log("START BUTTON CLICKED");
 
 try{
 
