@@ -95,6 +95,274 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    /*==================================
+    IMAGE ANIMATIONS
+    ==================================*/
+
+    const galleryImages = document.querySelectorAll(".gallery img");
+
+    galleryImages.forEach((image) => {
+
+        image.style.cursor = "pointer";
+
+        image.addEventListener("mouseenter", () => {
+
+            image.style.transform = "scale(1.05)";
+            image.style.transition = "0.4s";
+
+        });
+
+        image.addEventListener("mouseleave", () => {
+
+            image.style.transform = "scale(1)";
+
+        });
+
+        image.addEventListener("click", () => {
+
+            image.style.transform = "scale(1.15)";
+
+            setTimeout(() => {
+
+                image.style.transform = "scale(1)";
+
+            }, 250);
+
+        });
+
+    });
+
+    /*==================================
+    VIDEO SETTINGS
+    ==================================*/
+
+    const videos = document.querySelectorAll(".videos video");
+
+    videos.forEach((video) => {
+
+        video.preload = "metadata";
+
+        video.addEventListener("play", () => {
+
+            videos.forEach((other) => {
+
+                if (other !== video) {
+
+                    other.pause();
+
+                }
+
+            });
+
+        });
+
+    });
+
+    /*==================================
+    AUTO PLAY ENDING MUSIC
+    ==================================*/
+
+    if (endingMusic) {
+
+        endingMusic.volume = 0.35;
+
+        window.addEventListener("scroll", () => {
+
+            const bottomReached =
+
+                window.innerHeight + window.scrollY >=
+
+                document.body.offsetHeight - 20;
+
+            if (bottomReached && endingMusic.paused) {
+
+                endingMusic.play().catch(() => {});
+
+            }
+
+        });
+
+    }
+
+
+/*==================================
+SECTION REVEAL ANIMATION
+==================================*/
+
+const revealSections = document.querySelectorAll(
+    ".letterSection, .timelineSection, .gallerySection, .videoSection, .voiceSection, .endingSection"
+);
+
+const revealObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+            entry.target.style.transition = "all 1s ease";
+
+        }
+
+    });
+
+}, {
+
+    threshold: 0.15
+
 });
+
+revealSections.forEach((section) => {
+
+    section.style.opacity = "0";
+    section.style.transform = "translateY(40px)";
+
+    revealObserver.observe(section);
+
+});
+
+/*==================================
+LETTER PARAGRAPH FADE-IN
+==================================*/
+
+const letterParagraphs = document.querySelectorAll(".loveLetter p");
+
+letterParagraphs.forEach((paragraph, index) => {
+
+    paragraph.style.opacity = "0";
+    paragraph.style.transform = "translateY(20px)";
+
+    setTimeout(() => {
+
+        paragraph.style.transition = "all 0.8s ease";
+        paragraph.style.opacity = "1";
+        paragraph.style.transform = "translateY(0)";
+
+    }, 300 + (index * 180));
+
+});
+
+/*==================================
+ENDING CARD ANIMATION
+==================================*/
+
+const endingCard = document.querySelector(".endingCard");
+
+if (endingCard) {
+
+    endingCard.addEventListener("mouseenter", () => {
+
+        endingCard.style.transform = "scale(1.03)";
+        endingCard.style.transition = "0.4s";
+
+    });
+
+    endingCard.addEventListener("mouseleave", () => {
+
+        endingCard.style.transform = "scale(1)";
+
+    });
+
+}
+
+/*==================================
+PHOTO HOVER EFFECT
+==================================*/
+
+galleryImages.forEach((image) => {
+
+    image.addEventListener("mouseenter", () => {
+
+        image.style.boxShadow =
+            "0 0 30px rgba(255,105,180,0.6)";
+
+    });
+
+    image.addEventListener("mouseleave", () => {
+
+        image.style.boxShadow = "none";
+
+    });
+
+/*==================================
+VOICE NOTE SECTION
+==================================*/
+
+const voicePlayer = document.querySelector(".voiceSection audio");
+
+if (voicePlayer) {
+
+    voicePlayer.volume = 1;
+
+    voicePlayer.addEventListener("play", () => {
+
+        if (storyMusic && !storyMusic.paused) {
+
+            storyMusic.volume = 0.15;
+
+        }
+
+    });
+
+    voicePlayer.addEventListener("pause", () => {
+
+        if (storyMusic) {
+
+            storyMusic.volume = 0.45;
+
+        }
+
+    });
+
+    voicePlayer.addEventListener("ended", () => {
+
+        if (storyMusic) {
+
+            storyMusic.volume = 0.45;
+
+        }
+
+    });
+
+}
+
+/*==================================
+PHOTO LOADING EFFECT
+==================================*/
+
+galleryImages.forEach((image) => {
+
+    image.loading = "lazy";
+
+    image.addEventListener("load", () => {
+
+        image.style.opacity = "1";
+
+    });
+
+});
+
+/*==================================
+VIDEO ENDED
+==================================*/
+
+videos.forEach((video) => {
+
+    video.addEventListener("ended", () => {
+
+        video.currentTime = 0;
+
+    });
+
+});
+
+/*==================================
+PAGE FINISHED LOADING
+==================================*/
+
+console.log("Project Marion ❤️ proposal page loaded successfully.");
+});
+    });
 
     
