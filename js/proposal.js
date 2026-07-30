@@ -49,13 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Hide opening
         storyOpening.style.display = "none";
 
-        // Show all sections
-        letterSection.style.display = "block";
-        timelineSection.style.display = "block";
-        gallerySection.style.display = "block";
-        videoSection.style.display = "block";
-        voiceSection.style.display = "block";
-        endingSection.style.display = "block";
+        // Show only the letter first
+letterSection.style.display = "block";
 
         // Start music
         if (storyMusic) {
@@ -190,7 +185,7 @@ SECTION REVEAL ANIMATION
 ==================================*/
 
 const revealSections = document.querySelectorAll(
-    ".letterSection, .timelineSection, .gallerySection, .videoSection, .voiceSection, .endingSection"
+    ".timelineSection, .gallerySection, .videoSection, .voiceSection, .endingSection"
 );
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -215,6 +210,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealSections.forEach((section) => {
 
+    section.style.display = "block";
     section.style.opacity = "0";
     section.style.transform = "translateY(40px)";
 
