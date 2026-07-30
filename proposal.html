@@ -1,1 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>For My Princess ❤️</title>
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<!--==========================================
+BACKGROUND
+===========================================-->
+
+<div id="stars"></div>
+
+<div id="petals"></div>
+
+<div id="floatingHearts"></div>
+
+<div id="fireflies"></div>
+
+<div id="backgroundDecor">
+
+<div class="gradientGlow glow1"></div>
+
+<div class="gradientGlow glow2"></div>
+
+<div class="gradientGlow glow3"></div>
+
+</div>
+
+<!--==========================================
+MUSIC
+===========================================-->
+
+<audio
+id="letterMusic"
+loop>
+
+<source
+src="music/stayhereforlife.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<audio
+id="endingMusic"
+loop>
+
+<source
+src="music/newflame.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<audio
+id="voiceNote">
+
+<source
+src="music/voice.m4a"
+type="audio/mp4">
+
+</audio>
+
+<!--==========================================
+ENVELOPE
+===========================================-->
+
+<section
+id="envelopeSection">
+
+<div
+class="envelopeContainer">
+
+<h1>
+
+For My Beautiful
+Marion 💕
+
+</h1>
+
+<p>
+
+Before we continue...
+
+I wrote something
+from my heart.
+
+Open it slowly...
+
+❤️
+
+</p>
+
+<div
+id="envelope">
+
+<div
+class="envelopeFront">
+
+💌
+
+</div>
+
+<div
+class="waxSeal">
+
+❤️
+
+</div>
+
+</div>
+
+<p
+class="tapText">
+
+Tap the envelope
+
+</p>
+
+</div>
+
+</section>
+
+<!--==========================================
+LETTER
+===========================================-->
+
+<section
+id="letterSection"
+class="hidden">
+
+<div
+class="letterPaper">
+
+<h1>
+
+To My Beautiful and Gorgeous
+Girlfriend Marion 💕
+
+</h1>
+
+<div
+id="letterContent">
+
+<!--
+The letter
+will be typed
+here
+by JavaScript.
+-->
+
+</div>
+
+<div
+class="continueHint">
+
+👇
+
+Swipe up when
+you're done reading
+our story ❤️
+
+</div>
+
+</div>
+
+</section>
+<!--==========================================
+OUR MEMORIES
+===========================================-->
+
+<section
+id="gallerySection"
+class="hidden">
+
+<div
+class="galleryHeader">
+
+<h1>
+
+Our Happiest Memories ❤️
+
+</h1>
+
+<p>
+
+These are just some of the moments...
+
+that made me fall in love with you
+
+even more.
+
+🥹💕
+
+</p>
+
+</div>
+
+<div
+class="galleryViewer">
+
+<div
+class="galleryMedia">
+
+<!--
+gallery.js
+will insert
+photos/videos
+here
+-->
+
+</div>
+
+<div
+class="galleryOverlay">
+
+<div
+class="galleryCaption">
+
+Loading...
+
+</div>
+
+<div
+class="galleryCounter">
+
+<span id="currentSlide">
+
+1
+
+</span>
+
+/
+
+<span id="totalSlides">
+
+21
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+class="galleryControls">
+
+<button
+id="previousSlide">
+
+❮
+
+</button>
+
+<button
+id="nextSlide">
+
+❯
+
+</button>
+
+</div>
+
+<div
+class="galleryProgress">
+
+<div
+id="galleryProgressBar">
+
+</div>
+
+</div>
+
+<p
+class="galleryHint">
+
+Swipe left or right ❤️
+
+</p>
+
+</section>
+
+<!--==========================================
+VIDEO MESSAGE
+===========================================-->
+
+<section
+id="videoMessage"
+class="hidden">
+
+<div
+class="glass">
+
+<h1>
+
+I wasn't ready
+
+for these moments
+
+to end...
+
+❤️
+
+</h1>
+
+<p>
+
+But...
+
+I still have
+
+one more surprise
+
+waiting for you.
+
+🥹
+
+</p>
+
+<button
+id="lastSurprise">
+
+One Last Surprise 🎁
+
+</button>
+
+</div>
+
+</section>
+<!--==========================================
+ONE LAST SURPRISE
+===========================================-->
+
+<section
+id="voiceSection"
+class="hidden">
+
+<div
+class="voiceCard glass">
+
+<h1>
+
+One Last Thing...
+
+❤️
+
+</h1>
+
+<p>
+
+Before today comes to an end...
+
+there's something
+
+I wanted you to hear
+
+from me.
+
+Not words on a screen...
+
+but my own voice.
+
+🥹💕
+
+</p>
+
+<button
+id="playVoice">
+
+🎤 Play My Heart
+
+</button>
+
+<p
+class="voiceHint">
+
+Find somewhere quiet...
+
+and press play.
+
+❤️
+
+</p>
+
+</div>
+
+</section>
+
+<!--==========================================
+FINAL ENDING
+===========================================-->
+
+<section
+id="endingSection"
+class="hidden">
+
+<div
+class="endingCard glass">
+
+<h1>
+
+Forever?
+
+♾️💕
+
+</h1>
+
+<p>
+
+If I had one life...
+
+I'd choose you.
+
+<br><br>
+
+If I had one hundred lives...
+
+I'd still search for you.
+
+<br><br>
+
+If I had one thousand lives...
+
+I'd still fall in love with you
+
+every single time.
+
+❤️
+
+</p>
+
+<div
+class="endingButtons">
+
+<button
+id="foreverYes">
+
+YES 💕
+
+</button>
+
+<button
+id="alwaysBtn">
+
+ALWAYS 💍
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================================
+FINAL MESSAGE
+===========================================-->
+
+<section
+id="creditsSection"
+class="hidden">
+
+<div
+class="creditsCard">
+
+<h1>
+
+Happy Girlfriend's Day
+
+My Beautiful Princess
+
+💕🌸
+
+</h1>
+
+<p>
+
+Thank you for loving me.
+
+Thank you for believing in me.
+
+Thank you for choosing me.
+
+Thank you for staying.
+
+I'm proud of you.
+
+I care about you more than
+
+words could ever explain.
+
+I love you
+
+to positive infinity.
+
+♾️❤️
+
+</p>
+
+<h2>
+
+Forever Yours,
+
+<br><br>
+
+Darren 💕
+
+</h2>
+
+<div
+class="floatingEndHearts">
+
+❤️ 💕 ❤️ 💕 ❤️
+
+</div>
+
+</div>
+
+</section>
+<!--==========================================
+PRELOAD NEXT MEDIA
+===========================================-->
+
+<div id="mediaPreload" style="display:none;">
+
+<img src="images/photo1.jpg" alt="">
+<img src="images/photo2.jpg" alt="">
+<img src="images/photo3.jpg" alt="">
+<img src="images/photo4.jpg" alt="">
+<img src="images/photo5.jpg" alt="">
+<img src="images/photo6.jpg" alt="">
+<img src="images/photo7.jpg" alt="">
+<img src="images/photo8.jpg" alt="">
+<img src="images/photo9.jpg" alt="">
+<img src="images/photo10.jpg" alt="">
+<img src="images/photo11.jpg" alt="">
+<img src="images/photo12.jpg" alt="">
+<img src="images/photo13.jpg" alt="">
+<img src="images/photo14.jpg" alt="">
+<img src="images/photo15.jpg" alt="">
+<img src="images/photo16.jpg" alt="">
+
+<video preload="auto">
+<source src="videos/video1.mp4" type="video/mp4">
+</video>
+
+<video preload="auto">
+<source src="videos/video2.mp4" type="video/mp4">
+</video>
+
+<video preload="auto">
+<source src="videos/video3.mp4" type="video/mp4">
+</video>
+
+<video preload="auto">
+<source src="videos/video4.mp4" type="video/mp4">
+</video>
+
+<video preload="auto">
+<source src="videos/video5.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<!--==========================================
+FOOTER
+===========================================-->
+
+<footer id="proposalFooter">
+
+Made with infinite love ♾️💕
+
+For Marion ❤️
+
+</footer>
+
+<!--==========================================
+JAVASCRIPT
+===========================================-->
+
+<script src="js/audio.js"></script>
+
+<script src="js/gallery.js"></script>
+
+</body>
+
+</html>
