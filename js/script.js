@@ -3,8 +3,9 @@
     script.js
 ====================================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+console.log("SCRIPT.JS LOADED");
 
+document.addEventListener("DOMContentLoaded", () => {
 
 const loader = document.getElementById("loader");
 const intro = document.getElementById("intro");
