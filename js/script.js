@@ -5,305 +5,461 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /*==========================================
-        ELEMENTS
-    ==========================================*/
+const loader = document.getElementById("loader");
+const intro = document.getElementById("intro");
+const startButton = document.getElementById("startButton");
 
-    const loader = document.getElementById("loader");
+const openingMusic = document.getElementById("openingMusic");
 
-    const startButton = document.getElementById("startButton");
+const countdown = document.getElementById("countdownSection");
+const countNumber = document.getElementById("countNumber");
 
-    const openingMusic = document.getElementById("openingMusic");
+const heartbeat = document.getElementById("heartbeatScene");
 
-    const intro = document.getElementById("intro");
+const proposal = document.getElementById("proposalSection");
 
-    const countdown = document.getElementById("countdownSection");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
 
-    const heartbeat = document.getElementById("heartbeatScene");
+const yesSection = document.getElementById("yesSection");
 
-    const proposal = document.getElementById("proposalSection");
+const continueBtn = document.getElementById("continueBtn");
 
-    const number = document.getElementById("countNumber");
+const transition = document.getElementById("transitionSection");
 
-    const yesBtn = document.getElementById("yesBtn");
+const fade = document.getElementById("screenFade");
 
-    const noBtn = document.getElementById("noBtn");
+/*==================================
+LOADER
+==================================*/
 
-    const yesSection = document.getElementById("yesSection");
+window.addEventListener("load", () => {
 
-    const continueBtn = document.getElementById("continueBtn");
+setTimeout(() => {
 
-    const transition = document.getElementById("transitionSection");
+loader.classList.add("loaderHide");
 
-    const proposalLink = document.getElementById("proposalLink");
+},2500);
 
-    const fade = document.getElementById("screenFade");
+});
 
-    /*==========================================
-        LOADER
-    ==========================================*/
+/*==================================
+START EXPERIENCE
+==================================*/
 
-    window.addEventListener("load", () => {
+startButton.addEventListener("click", async () => {
 
-        setTimeout(() => {
+try{
 
-            loader.classList.add("loaderHide");
+openingMusic.volume = 0.45;
 
-        }, 2800);
+await openingMusic.play();
 
-    });
+}catch(e){
 
-    /*==========================================
-        START EXPERIENCE
-    ==========================================*/
+console.log(e);
 
-    startButton.addEventListener("click", async () => {
+}
 
-        try{
+intro.classList.add("hide");
 
-            openingMusic.volume = 0.45;
+countdown.classList.remove("hidden");
+countdown.classList.add("show");
 
-            await openingMusic.play();
+startCountdown();
 
-        }catch(error){
+});
 
-            console.log("Music will start after interaction.");
+/*==================================
+COUNTDOWN
+==================================*/
+
+function startCountdown(){
+
+let count = 3;
+
+countNumber.textContent = count;
+
+const timer = setInterval(()=>{
+
+count--;
+
+if(count > 0){
+
+countNumber.textContent = count;
+
+}
+
+else if(count === 0){
+
+countNumber.textContent = "💕";
+
+}
+
+else{
+
+clearInterval(timer);
+
+countdown.classList.remove("show");
+countdown.classList.add("hide");
+
+showHeartbeat();
+
+}
+
+},1200);
+
+}
+
+/*==================================
+HEARTBEAT
+==================================*/
+
+function showHeartbeat(){
+
+heartbeat.classList.remove("hidden");
+heartbeat.classList.add("show");
+
+setTimeout(()=>{
+
+heartbeat.classList.remove("show");
+heartbeat.classList.add("hide");
+
+showProposal();
+
+},4200);
+
+}
+
+/*==================================
+PROPOSAL
+==================================*/
+
+function showProposal(){
+
+proposal.classList.remove("hidden");
+proposal.classList.add("show");
+
+}
+/*==================================
+ESCAPING NO BUTTON
+==================================*/
+
+const funnyMessages = [
+
+"😂 Nice try!",
+
+"🥺 Don't break my heart.",
+
+"💕 I know you want YES.",
+
+"😝 You almost got me!",
+
+"❤️ That button is shy."
+
+];
+
+let noAttempts = 0;
+
+function moveNoButton(){
+
+const area = document.querySelector(".buttonArea");
+
+if(!area) return;
+
+const maxX = area.clientWidth - noBtn.offsetWidth;
+
+const maxY = area.clientHeight - noBtn.offsetHeight;
+
+const randomX = Math.max(0,Math.random()*maxX);
+
+const randomY = Math.max(0,Math.random()*maxY);
+
+noBtn.style.position="absolute";
+
+noBtn.style.left=randomX+"px";
+
+noBtn.style.top=randomY+"px";
+
+if(noAttempts<funnyMessages.length){
+
+noBtn.textContent=funnyMessages[noAttempts];
+
+noAttempts++;
+
+}
+
+}
+
+noBtn.addEventListener("mouseenter",moveNoButton);
+
+noBtn.addEventListener("touchstart",(e)=>{
+
+e.preventDefault();
+
+moveNoButton();
+
+});
+
+/*==================================
+YES BUTTON
+==================================*/
+
+let hasAnswered = false;
+
+yesBtn.addEventListener("click",()=>{
+
+    if(hasAnswered) return;
+
+    hasAnswered = true;
+
+    launchFireworks();
+
+    proposal.classList.remove("show");
+    proposal.classList.add("hide");
+
+    yesSection.classList.remove("hidden");
+    yesSection.classList.add("show");
+
+});
+/*==================================
+FIREWORKS
+==================================*/
+
+function launchFireworks(){
+
+const duration=5000;
+
+const end=Date.now()+duration;
+
+(function frame(){
+
+confetti({
+
+particleCount:5,
+
+spread:70,
+
+origin:{x:0},
+
+angle:60
+
+});
+
+confetti({
+
+particleCount:5,
+
+spread:70,
+
+origin:{x:1},
+
+angle:120
+
+});
+
+confetti({
+
+particleCount:8,
+
+spread:100,
+
+origin:{
+
+x:Math.random(),
+
+y:Math.random()*0.6
+
+}
+
+});
+
+if(Date.now()<end){
+
+requestAnimationFrame(frame);
+
+}
+
+})();
+
+}
+/*==================================
+SMOOTH MUSIC FADE
+==================================*/
+
+function fadeOutMusic(audio, duration = 2000){
+
+if(!audio) return;
+
+const step = audio.volume / (duration / 50);
+
+const fade = setInterval(()=>{
+
+if(audio.volume > step){
+
+audio.volume -= step;
+
+}else{
+
+audio.volume = 0;
+
+audio.pause();
+
+clearInterval(fade);
+
+}
+
+},50);
+
+}
+
+function fadeInMusic(audio,targetVolume=0.45,duration=2000){
+
+if(!audio) return;
+
+audio.volume = 0;
+
+audio.play().catch(()=>{});
+
+const step = targetVolume/(duration/50);
+
+const fade = setInterval(()=>{
+
+if(audio.volume < targetVolume-step){
+
+audio.volume += step;
+
+}else{
+
+audio.volume = targetVolume;
+
+clearInterval(fade);
+
+}
+
+},50);
+
+}
+
+/*==================================
+FADE TO NEXT PAGE
+==================================*/
+
+continueBtn.addEventListener("click",()=>{
+
+fadeOutMusic(openingMusic,1800);
+
+transition.classList.remove("hidden");
+
+transition.classList.add("show");
+
+fade.classList.add("active");
+
+setTimeout(()=>{
+
+window.location.href="proposal.html";
+
+},3000);
+
+});
+/*==================================
+KEYBOARD SHORTCUTS
+(Useful for testing)
+==================================*/
+
+document.addEventListener("keydown",(e)=>{
+
+if(e.key==="Enter" && proposal.classList.contains("show")){
+
+yesBtn.click();
+
+}
+
+if(e.key==="Escape"){
+
+window.location.reload();
+
+}
+
+});
+
+/*==================================
+SAFETY CHECKS
+==================================*/
+
+window.addEventListener("error",(e)=>{
+
+console.log("Script Error:",e.message);
+
+});
+
+/*==================================
+PRELOAD AUDIO
+==================================*/
+
+openingMusic.load();
+/*==================================
+RESET NO BUTTON
+==================================*/
+
+function resetNoButton(){
+
+    noBtn.style.position = "relative";
+    noBtn.style.left = "0";
+    noBtn.style.top = "0";
+    noBtn.textContent = "NO 🙈";
+
+}
+
+/*==================================
+PAGE VISIBILITY
+==================================*/
+
+document.addEventListener("visibilitychange",()=>{
+
+    if(document.hidden){
+
+        if(openingMusic && !openingMusic.paused){
+
+            openingMusic.pause();
 
         }
 
-        intro.classList.add("hide");
+    }else{
 
-        countdown.classList.remove("hidden");
+        if(openingMusic &&
+           openingMusic.paused &&
+           intro.classList.contains("hide")){
 
-        countdown.classList.add("show");
-
-        startCountdown();
-
-    });
-
-    /*==========================================
-        COUNTDOWN
-    ==========================================*/
-
-    function startCountdown(){
-
-        let count = 3;
-
-        number.textContent = count;
-
-        const timer = setInterval(() => {
-
-            count--;
-
-            if(count > 0){
-
-                number.textContent = count;
-
-            }
-
-            else if(count === 0){
-
-                number.textContent = "💕";
-
-            }
-
-            else{
-
-                clearInterval(timer);
-
-                countdown.classList.remove("show");
-
-                countdown.classList.add("hide");
-
-                showHeartbeat();
-
-            }
-
-        }, 1200);
-
-    }
-
-    /*==========================================
-        HEARTBEAT
-    ==========================================*/
-
-    function showHeartbeat(){
-
-        heartbeat.classList.remove("hidden");
-
-        heartbeat.classList.add("show");
-
-        setTimeout(() => {
-
-            heartbeat.classList.remove("show");
-
-            heartbeat.classList.add("hide");
-
-            showProposal();
-
-        }, 4500);
-
-    }
-
-    /*==========================================
-        PROPOSAL
-    ==========================================*/
-
-    function showProposal(){
-
-        proposal.classList.remove("hidden");
-
-        proposal.classList.add("show");
-
-    }
-    /*==========================================
-        NO BUTTON (DESKTOP)
-    ==========================================*/
-
-    function moveNoButton(){
-
-        const area = document.querySelector(".buttonArea");
-
-        const maxX = area.clientWidth - noBtn.offsetWidth;
-
-        const maxY = area.clientHeight + 80;
-
-        const x = Math.random() * maxX;
-
-        const y = Math.random() * maxY;
-
-        noBtn.style.left = x + "px";
-
-        noBtn.style.top = y + "px";
-
-    }
-
-    noBtn.addEventListener("mouseenter", moveNoButton);
-
-    /*==========================================
-        MOBILE SUPPORT
-    ==========================================*/
-
-    noBtn.addEventListener("touchstart",(e)=>{
-
-        e.preventDefault();
-
-        moveNoButton();
-
-    });
-
-    /*==========================================
-        FUNNY MESSAGES
-    ==========================================*/
-
-    const messages=[
-
-        "😂 Nice try!",
-
-        "💕 Press YES instead.",
-
-        "🥹 Ehhhhh... noooo.",
-
-        "😝 That button isn't cooperating.",
-
-        "❤️ I know you mean YES."
-
-    ];
-
-    let attempts=0;
-
-    noBtn.addEventListener("mouseover",()=>{
-
-        if(attempts<messages.length){
-
-            noBtn.innerHTML=messages[attempts];
-
-            attempts++;
+            openingMusic.play().catch(()=>{});
 
         }
 
-    });
-
-    /*==========================================
-        YES BUTTON
-    ==========================================*/
-
-    yesBtn.addEventListener("click",()=>{
-
-        launchFireworks();
-
-        proposal.classList.add("hide");
-
-        yesSection.classList.remove("hidden");
-
-        yesSection.classList.add("show");
-
-    });
-
-    /*==========================================
-        CONTINUE BUTTON
-    ==========================================*/
-
-    continueBtn.addEventListener("click",()=>{
-
-        transition.classList.remove("hidden");
-
-        transition.classList.add("show");
-
-        fade.classList.add("active");
-
-        setTimeout(()=>{
-
-            window.location.href="proposal.html";
-
-        },2500);
-
-    });
-
-    /*==========================================
-        FIREWORKS
-    ==========================================*/
-
-    function launchFireworks(){
-
-        const duration=5000;
-
-        const end=Date.now()+duration;
-
-        (function frame(){
-
-            confetti({
-
-                particleCount:6,
-
-                angle:60,
-
-                spread:70,
-
-                origin:{x:0}
-
-            });
-
-            confetti({
-
-                particleCount:6,
-
-                angle:120,
-
-                spread:70,
-
-                origin:{x:1}
-
-            });
-
-            if(Date.now()<end){
-
-                requestAnimationFrame(frame);
-
-            }
-
-        })();
-
     }
+
+});
+
+/*==================================
+INITIAL SETUP
+==================================*/
+
+resetNoButton();
+
+proposal.classList.add("hidden");
+yesSection.classList.add("hidden");
+heartbeat.classList.add("hidden");
+countdown.classList.add("hidden");
+transition.classList.add("hidden");
+
+/*==================================
+PREVENT DOUBLE CLICKS
+==================================*/
+
+/*==================================
+END OF FILE
+==================================*/
+
+});
+
     
 
