@@ -435,9 +435,8 @@ function resetNoButton(){
     noBtn.style.top = "0";
     noBtn.textContent = "NO 🙈";
 
+}
     window.startCountdown = startCountdown;
-
-});
 
 /*==================================
 PAGE VISIBILITY
