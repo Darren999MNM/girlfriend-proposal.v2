@@ -153,7 +153,157 @@ document.addEventListener("DOMContentLoaded", () => {
 
         proposal.classList.remove("hidden");
 
-        proposal.classList.add("fadeIn");
+        proposal.classList.add("show");
 
     }
+    /*==========================================
+        NO BUTTON (DESKTOP)
+    ==========================================*/
+
+    function moveNoButton(){
+
+        const area = document.querySelector(".buttonArea");
+
+        const maxX = area.clientWidth - noBtn.offsetWidth;
+
+        const maxY = area.clientHeight + 80;
+
+        const x = Math.random() * maxX;
+
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = x + "px";
+
+        noBtn.style.top = y + "px";
+
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+
+    /*==========================================
+        MOBILE SUPPORT
+    ==========================================*/
+
+    noBtn.addEventListener("touchstart",(e)=>{
+
+        e.preventDefault();
+
+        moveNoButton();
+
+    });
+
+    /*==========================================
+        FUNNY MESSAGES
+    ==========================================*/
+
+    const messages=[
+
+        "😂 Nice try!",
+
+        "💕 Press YES instead.",
+
+        "🥹 Ehhhhh... noooo.",
+
+        "😝 That button isn't cooperating.",
+
+        "❤️ I know you mean YES."
+
+    ];
+
+    let attempts=0;
+
+    noBtn.addEventListener("mouseover",()=>{
+
+        if(attempts<messages.length){
+
+            noBtn.innerHTML=messages[attempts];
+
+            attempts++;
+
+        }
+
+    });
+
+    /*==========================================
+        YES BUTTON
+    ==========================================*/
+
+    yesBtn.addEventListener("click",()=>{
+
+        launchFireworks();
+
+        proposal.classList.add("hide");
+
+        yesSection.classList.remove("hidden");
+
+        yesSection.classList.add("show");
+
+    });
+
+    /*==========================================
+        CONTINUE BUTTON
+    ==========================================*/
+
+    continueBtn.addEventListener("click",()=>{
+
+        transition.classList.remove("hidden");
+
+        transition.classList.add("show");
+
+        fade.classList.add("active");
+
+        setTimeout(()=>{
+
+            window.location.href="proposal.html";
+
+        },2500);
+
+    });
+
+    /*==========================================
+        FIREWORKS
+    ==========================================*/
+
+    function launchFireworks(){
+
+        const duration=5000;
+
+        const end=Date.now()+duration;
+
+        (function frame(){
+
+            confetti({
+
+                particleCount:6,
+
+                angle:60,
+
+                spread:70,
+
+                origin:{x:0}
+
+            });
+
+            confetti({
+
+                particleCount:6,
+
+                angle:120,
+
+                spread:70,
+
+                origin:{x:1}
+
+            });
+
+            if(Date.now()<end){
+
+                requestAnimationFrame(frame);
+
+            }
+
+        })();
+
+    }
+    
 
