@@ -213,6 +213,10 @@ LETTER
     box-shadow:
         0 20px 60px rgba(0,0,0,.35);
 
+    max-height:85vh;
+    overflow-y:auto;
+    scroll-behavior:smooth;
+
 }
 
 .letterPaper h1{
@@ -260,6 +264,33 @@ LETTER
     color:#8f1029;
 
     opacity:0;
+
+}
+.letterActions{
+
+    display:flex;
+    justify-content:center;
+    margin-top:50px;
+
+}
+
+#continueToVoice{
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    background:linear-gradient(135deg,#d4af37,#f6d87b);
+
+    color:#5a0015;
+
+    font-weight:700;
 
 }
 /*==================================
@@ -464,5 +495,11 @@ MOBILE
         height:78px;
         font-size:13px;
     }
+<div class="letterActions">
 
+    <button id="continueToVoice">
+        Continue ❤️
+    </button>
+
+</div>
 }
