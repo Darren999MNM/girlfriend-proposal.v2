@@ -420,7 +420,81 @@ ENDING
     font-size:56px;
     color:#ffb7d7;
 }
+/*==================================
+FINAL SURPRISE CARD
+==================================*/
 
+.memoryCard{
+
+    max-width:700px;
+    width:100%;
+    text-align:center;
+    padding:60px;
+
+    color:#4b2332;
+
+    background:
+    linear-gradient(145deg,#fff8ea,#ffe8f0);
+
+    border:2px solid rgba(212,175,55,.6);
+
+    border-radius:25px;
+
+    box-shadow:
+    0 20px 60px rgba(212,175,55,.25),
+    0 0 40px rgba(255,183,215,.25);
+
+}
+
+
+.memoryCard h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:70px;
+
+    color:#8f1029;
+
+    margin-bottom:25px;
+
+}
+
+
+.memoryCard p{
+
+    color:#4b2332;
+
+    font-size:22px;
+
+    line-height:1.9;
+
+}
+
+
+/* little breathing animation */
+
+.memoryCard{
+
+    animation: surpriseGlow 3s infinite alternate;
+
+}
+
+
+@keyframes surpriseGlow{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.02);
+
+    }
+
+}
 /*==================================
 MEMORY BUTTON
 ==================================*/
@@ -438,18 +512,28 @@ MEMORY BUTTON
     width:100%;
     text-align:center;
     padding:60px;
-}
 
+    color:#4b2332;
+}
 .memoryCard h1{
+
     font-family:'Great Vibes',cursive;
     font-size:70px;
-    color:#ffd5e8;
+
+    color:#8f1029;
+
 }
 
 .memoryCard p{
+
     margin:30px 0 45px;
+
     font-size:22px;
+
     line-height:1.9;
+
+    color:#4b2332;
+
 }
 
 .memoryButton{
