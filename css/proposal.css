@@ -1,0 +1,468 @@
+/*====================================================
+    PROJECT MARION ❤️
+    proposal.css
+====================================================*/
+
+/*==================================
+PAGE
+==================================*/
+
+.proposalPage{
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at top,#5c0f26 0%,#250012 45%,#09000a 100%);
+    min-height:100vh;
+}
+
+/*==================================
+HIDDEN SECTIONS
+==================================*/
+
+.hiddenScene{
+    display:none;
+}
+
+/*==================================
+STORY OPENING
+==================================*/
+
+.storyOpening{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.storyCard{
+    max-width:700px;
+    padding:50px;
+}
+
+.storyCard h1{
+    font-family:'Great Vibes',cursive;
+    font-size:72px;
+    color:#ffd5e8;
+    margin-bottom:25px;
+}
+
+.storyCard p{
+    font-size:22px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+#startStory{
+    padding:18px 42px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:20px;
+    font-weight:600;
+}
+
+/*==================================
+ENVELOPE SECTION
+==================================*/
+
+#envelopeSection{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.envelopeContainer{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.envelope{
+    width:420px;
+    max-width:90vw;
+    height:270px;
+    position:relative;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.envelope:hover{
+    transform:translateY(-8px);
+}
+
+.envelopeFront{
+    width:100%;
+    height:100%;
+    background:linear-gradient(145deg,#7d0d22,#5d0918);
+    border-radius:12px;
+    position:relative;
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+    overflow:hidden;
+}
+
+.envelopeFront::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    clip-path:polygon(0 0,100% 0,50% 55%);
+    background:#8f1029;
+}
+
+.envelopeFront h2{
+    position:absolute;
+    top:28px;
+    width:100%;
+    text-align:center;
+    font-family:'Cinzel',serif;
+    color:#ffe5ef;
+    letter-spacing:2px;
+    font-size:26px;
+}
+/*==================================
+WAX SEAL
+==================================*/
+
+.waxSeal{
+    position:absolute;
+    left:50%;
+    top:58%;
+    transform:translate(-50%,-50%);
+    width:95px;
+    height:95px;
+    border-radius:50%;
+    background:radial-gradient(circle,#f6d87b 0%,#d8a928 60%,#8f6700 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-size:15px;
+    font-weight:700;
+    color:#5b0000;
+    box-shadow:
+        0 0 20px rgba(255,215,0,.45),
+        inset 0 4px 10px rgba(255,255,255,.35),
+        inset 0 -6px 12px rgba(0,0,0,.25);
+    transition:.35s;
+}
+
+.waxSeal:hover{
+    transform:translate(-50%,-50%) scale(1.08);
+    box-shadow:
+        0 0 35px rgba(255,215,0,.8);
+}
+
+.tapText{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    text-align:center;
+    font-size:18px;
+    color:#ffe7ef;
+    letter-spacing:1px;
+    animation:pulseText 2s infinite;
+}
+
+@keyframes pulseText{
+
+    0%,100%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:.45;
+    }
+
+}
+
+/*==================================
+LETTER
+==================================*/
+
+#letterSection{
+    min-height:100vh;
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.letterWrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.letterPaper{
+
+    width:900px;
+    max-width:95%;
+
+    background:#fff8ea;
+
+    color:#3b2921;
+
+    border-radius:16px;
+
+    padding:70px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35);
+
+}
+
+.letterPaper h1{
+
+    text-align:center;
+
+    font-family:'Great Vibes',cursive;
+
+    color:#8f1029;
+
+    font-size:58px;
+
+    margin-bottom:45px;
+
+}
+
+.letterContent{
+
+    font-family:'Caveat',cursive;
+
+    font-size:31px;
+
+    line-height:1.9;
+
+}
+
+.letterParagraph{
+
+    margin-bottom:28px;
+
+    opacity:0;
+
+}
+
+.letterSignature{
+
+    text-align:right;
+
+    margin-top:60px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:52px;
+
+    color:#8f1029;
+
+    opacity:0;
+
+}
+/*==================================
+VOICE NOTE
+==================================*/
+
+#voiceSection{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+}
+
+.voiceCard{
+    max-width:700px;
+    width:100%;
+    padding:60px;
+    text-align:center;
+}
+
+.voiceCard h1{
+    font-family:'Great Vibes',cursive;
+    font-size:68px;
+    color:#ffd5e8;
+    margin-bottom:25px;
+}
+
+.voiceCard p{
+    font-size:22px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+#playVoiceBtn{
+    padding:18px 40px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:20px;
+    font-weight:600;
+    background:linear-gradient(135deg,#d4af37,#f6d87b);
+    color:#5a0015;
+    transition:.35s;
+}
+
+#playVoiceBtn:hover{
+    transform:translateY(-4px) scale(1.03);
+}
+
+/*==================================
+ENDING
+==================================*/
+
+#endingSection{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+}
+
+.endingCard{
+    max-width:750px;
+    text-align:center;
+    padding:60px;
+}
+
+.endingCard h1{
+    font-family:'Great Vibes',cursive;
+    font-size:82px;
+    color:#ffd5e8;
+    margin-bottom:30px;
+}
+
+.endingCard p{
+    font-size:24px;
+    line-height:2;
+}
+
+.endingCard h2{
+    margin-top:40px;
+    font-family:'Great Vibes',cursive;
+    font-size:56px;
+    color:#ffb7d7;
+}
+
+/*==================================
+MEMORY BUTTON
+==================================*/
+
+#memorySection{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+}
+
+.memoryCard{
+    max-width:700px;
+    width:100%;
+    text-align:center;
+    padding:60px;
+}
+
+.memoryCard h1{
+    font-family:'Great Vibes',cursive;
+    font-size:70px;
+    color:#ffd5e8;
+}
+
+.memoryCard p{
+    margin:30px 0 45px;
+    font-size:22px;
+    line-height:1.9;
+}
+
+.memoryButton{
+    display:inline-block;
+    padding:20px 42px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:700;
+    color:#5a0015;
+    background:linear-gradient(135deg,#d4af37,#f6d87b);
+    transition:.35s;
+    box-shadow:0 10px 35px rgba(212,175,55,.35);
+}
+
+.memoryButton:hover{
+    transform:translateY(-5px) scale(1.04);
+    box-shadow:0 15px 45px rgba(212,175,55,.55);
+}
+
+/*==================================
+FADE ANIMATION
+==================================*/
+
+.showScene{
+    display:flex !important;
+    animation:fadeScene .8s ease;
+}
+
+@keyframes fadeScene{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/*==================================
+MOBILE
+==================================*/
+
+@media(max-width:768px){
+
+    .storyCard h1,
+    .voiceCard h1,
+    .endingCard h1,
+    .memoryCard h1{
+        font-size:48px;
+    }
+
+    .letterPaper{
+        padding:35px 25px;
+    }
+
+    .letterPaper h1{
+        font-size:40px;
+    }
+
+    .letterContent{
+        font-size:24px;
+    }
+
+    .letterSignature{
+        font-size:42px;
+    }
+
+    .voiceCard,
+    .endingCard,
+    .memoryCard{
+        padding:35px 25px;
+    }
+
+    .envelope{
+        width:320px;
+        height:210px;
+    }
+
+    .waxSeal{
+        width:78px;
+        height:78px;
+        font-size:13px;
+    }
+
+}
