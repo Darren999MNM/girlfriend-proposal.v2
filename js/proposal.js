@@ -92,44 +92,31 @@ endingSection.classList.remove("showSection");
 UNLOCK TIMELINE
 ==================================*/
 
-window.addEventListener("scroll", revealTimeline);
-
 function revealTimeline() {
 
     if (
         window.scrollY > 500 &&
-        timelineSection.style.display === "none"
+        !timelineSection.classList.contains("showSection")
     ) {
 
-       timelineSection.style.display = "block";
+        timelineSection.classList.add("showSection");
 
-timelineSection.style.marginTop = "120px";
+        setTimeout(() => {
 
-timelineSection.style.opacity = "0";
+            timelineSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
 
-timelineSection.style.transform = "translateY(40px)";
-
-timelineSection.style.transition = "all 1s ease";
-        requestAnimationFrame(() => {
-
-            timelineSection.style.opacity = "1";
-            timelineSection.style.transform = "translateY(0)";
-            setTimeout(() => {
-
-    timelineSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-}, 800);
-
-        });
+        }, 500);
 
         window.removeEventListener("scroll", revealTimeline);
+
     }
 
 }
-    });
+
+window.addEventListener("scroll", revealTimeline);
 
     /*==================================
     IMAGE ANIMATIONS
