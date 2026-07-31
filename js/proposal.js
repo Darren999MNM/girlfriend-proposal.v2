@@ -199,11 +199,10 @@ timelineSection.style.transition = "all 1s ease";
 
 window.addEventListener("scroll", () => {
 
-    const letterBottom =
-        letterSection.offsetTop + letterSection.offsetHeight - 200;
+    const letterRect = letterSection.getBoundingClientRect();
 
     if (
-        window.scrollY + window.innerHeight >= letterBottom &&
+        letterRect.bottom < window.innerHeight + 100 &&
         timelineSection.style.display === "none"
     ) {
 
