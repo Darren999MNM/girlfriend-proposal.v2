@@ -294,6 +294,49 @@ LETTER
 
 }
 /*==================================
+LETTER CONTINUE BUTTON
+==================================*/
+
+.letterActions{
+
+    display:flex;
+    justify-content:center;
+    margin-top:50px;
+
+}
+
+#continueToVoice{
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    background:linear-gradient(135deg,#d4af37,#f6d87b);
+
+    color:#5a0015;
+
+    transition:.35s;
+
+    box-shadow:0 10px 30px rgba(212,175,55,.35);
+
+}
+
+#continueToVoice:hover{
+
+    transform:translateY(-4px) scale(1.04);
+
+    box-shadow:0 15px 40px rgba(212,175,55,.55);
+
+}
+/*==================================
 VOICE NOTE
 ==================================*/
 
