@@ -264,18 +264,7 @@ function revealLetter(){
 
     },delay);
 
-    setTimeout(()=>{
-
-        showSection(voiceSection);
-
-        voiceSection.scrollIntoView({
-
-            behavior:"smooth"
-
-        });
-
-    },delay + 1800);
-
+   
 }
     
         /*==================================
@@ -286,7 +275,9 @@ function revealLetter(){
 
         if (storyMusic && !storyMusic.paused) {
 
-            storyMusic.volume = 0.15;
+           storyMusic.pause();
+
+voiceNote.play();
 
         }
 
@@ -308,10 +299,8 @@ function revealLetter(){
 
         if (storyMusic) {
 
-            storyMusic.volume = 0.45;
-
             storyMusic.pause();
-
+storyMusic.currentTime = 0;
         }
 
         if (endingMusic) {
@@ -396,6 +385,18 @@ function revealLetter(){
     ==================================*/
 
     console.log("Project Marion ❤️ loaded successfully.");
+
+});
+const continueToVoice =
+document.getElementById("continueToVoice");
+
+continueToVoice.addEventListener("click", () => {
+
+    showSection(voiceSection);
+
+    voiceSection.scrollIntoView({
+        behavior: "smooth"
+    });
 
 });
   
