@@ -286,9 +286,7 @@ continueToVoice.addEventListener("click", () => {
     PLAY VOICE NOTE
     ==================================*/
 
-    playVoiceBtn.addEventListener("click", () => {
-
-        playVoiceBtn.addEventListener("click", () => {
+playVoiceBtn.addEventListener("click", () => {
 
     if (storyMusic && !storyMusic.paused) {
 
@@ -301,8 +299,6 @@ continueToVoice.addEventListener("click", () => {
     playVoiceBtn.disabled = true;
 
 });
-
-
 
     /*==================================
     VOICE NOTE FINISHED
@@ -402,5 +398,4 @@ storyMusic.currentTime = 0;
 });
 
 
-});
   
