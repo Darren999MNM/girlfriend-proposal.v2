@@ -226,27 +226,55 @@ document.addEventListener("DOMContentLoaded", () => {
     LETTER ANIMATION
     ==================================*/
 
-   function revealLetter() {
+function revealLetter(){
 
-    paragraphs.forEach((paragraph) => {
+    let delay = 0;
 
-        paragraph.style.opacity = "1";
-        paragraph.style.transform = "translateY(0)";
+    paragraphs.forEach((paragraph)=>{
+
+        setTimeout(()=>{
+
+            paragraph.style.transition =
+                "all .8s ease";
+
+            paragraph.style.opacity = "1";
+
+            paragraph.style.transform =
+                "translateY(0)";
+
+        },delay);
+
+        delay += 2200;
 
     });
 
-    if (signature) {
+    setTimeout(()=>{
 
-        signature.style.opacity = "1";
-        signature.style.transform = "translateY(0)";
+        if(signature){
 
-    }
+            signature.style.transition =
+                "all .8s ease";
 
-    setTimeout(() => {
+            signature.style.opacity = "1";
+
+            signature.style.transform =
+                "translateY(0)";
+
+        }
+
+    },delay);
+
+    setTimeout(()=>{
 
         showSection(voiceSection);
 
-    }, 300);
+        voiceSection.scrollIntoView({
+
+            behavior:"smooth"
+
+        });
+
+    },delay + 1800);
 
 }
     }
