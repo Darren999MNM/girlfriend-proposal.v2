@@ -510,3 +510,32 @@ font-size:55px;
 
 
 }
+/*==================================
+SECTION REVEAL
+==================================*/
+
+.timelineSection,
+.gallerySection,
+.videoSection,
+.voiceSection,
+.endingSection{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:all 1s ease;
+
+    pointer-events:none;
+
+}
+
+.showSection{
+
+    opacity:1 !important;
+
+    transform:translateY(0) !important;
+
+    pointer-events:auto;
+
+}
