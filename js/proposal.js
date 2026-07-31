@@ -93,7 +93,35 @@ endingSection.style.display = "none";
             behavior: "smooth"
 
         });
+/*==================================
+UNLOCK TIMELINE
+==================================*/
 
+window.addEventListener("scroll", revealTimeline);
+
+function revealTimeline() {
+
+    if (
+        window.scrollY > 500 &&
+        timelineSection.style.display === "none"
+    ) {
+
+        timelineSection.style.display = "block";
+        timelineSection.style.opacity = "0";
+        timelineSection.style.transform = "translateY(40px)";
+        timelineSection.style.transition = "all 1s ease";
+
+        requestAnimationFrame(() => {
+
+            timelineSection.style.opacity = "1";
+            timelineSection.style.transform = "translateY(0)";
+
+        });
+
+        window.removeEventListener("scroll", revealTimeline);
+    }
+
+}
     });
 
     /*==================================
@@ -189,35 +217,7 @@ endingSection.style.display = "none";
 /*==================================
 SECTION REVEAL ANIMATION
 ==================================*/
-/*==================================
-UNLOCK TIMELINE
-==================================*/
 
-timelineSection.style.opacity = "0";
-timelineSection.style.transform = "translateY(40px)";
-timelineSection.style.transition = "all 1s ease";
-
-window.addEventListener("scroll", () => {
-
-    const letterRect = letterSection.getBoundingClientRect();
-
-    if (
-        letterRect.bottom < window.innerHeight + 100 &&
-        timelineSection.style.display === "none"
-    ) {
-
-        timelineSection.style.display = "block";
-
-        requestAnimationFrame(() => {
-
-            timelineSection.style.opacity = "1";
-            timelineSection.style.transform = "translateY(0)";
-
-        });
-
-    }
-
-});
 
 
 /*==================================
