@@ -338,7 +338,7 @@ storyMusic.currentTime = 0;
 
             });
 
-        }, 3000);
+        }, 12000);
 
     });
 
