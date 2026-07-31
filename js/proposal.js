@@ -273,21 +273,19 @@ function revealLetter(){
 
     playVoiceBtn.addEventListener("click", () => {
 
-        if (storyMusic && !storyMusic.paused) {
+        playVoiceBtn.addEventListener("click", () => {
 
-           storyMusic.pause();
+    if (storyMusic && !storyMusic.paused) {
 
-voiceNote.play();
+        storyMusic.pause();
 
-        }
+    }
 
-        voiceNote.play();
+    voiceNote.play();
 
-        playVoiceBtn.disabled = true;
+    playVoiceBtn.disabled = true;
 
-    });
-
-
+});
 
 
 
@@ -387,16 +385,7 @@ storyMusic.currentTime = 0;
     console.log("Project Marion ❤️ loaded successfully.");
 
 });
-const continueToVoice =
-document.getElementById("continueToVoice");
 
-continueToVoice.addEventListener("click", () => {
-
-    showSection(voiceSection);
-
-    voiceSection.scrollIntoView({
-        behavior: "smooth"
-    });
 
 });
   
