@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const startStory = document.getElementById("startStory");
     const playVoiceBtn = document.getElementById("playVoiceBtn");
     const memoryButton = document.getElementById("memoryButton");
+    const continueToVoice = document.getElementById("continueToVoice");
 
     /*==================================
     SECTIONS
@@ -266,7 +267,21 @@ function revealLetter(){
 
    
 }
-    
+    /*==================================
+CONTINUE TO VOICE NOTE
+==================================*/
+
+continueToVoice.addEventListener("click", () => {
+
+    showSection(voiceSection);
+
+    voiceSection.scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
+});
         /*==================================
     PLAY VOICE NOTE
     ==================================*/
