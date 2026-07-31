@@ -226,56 +226,29 @@ document.addEventListener("DOMContentLoaded", () => {
     LETTER ANIMATION
     ==================================*/
 
-    function revealLetter(){
+   function revealLetter() {
 
-        let delay = 0;
+    paragraphs.forEach((paragraph) => {
 
-        paragraphs.forEach((paragraph)=>{
+        paragraph.style.opacity = "1";
+        paragraph.style.transform = "translateY(0)";
 
-            setTimeout(()=>{
+    });
 
-                paragraph.style.transition =
-                    "all .8s ease";
+    if (signature) {
 
-                paragraph.style.opacity = "1";
+        signature.style.opacity = "1";
+        signature.style.transform = "translateY(0)";
 
-                paragraph.style.transform =
-                    "translateY(0)";
+    }
 
-            },delay);
+    setTimeout(() => {
 
-            delay += 2200;
+        showSection(voiceSection);
 
-        });
+    }, 300);
 
-        setTimeout(()=>{
-
-            if(signature){
-
-                signature.style.transition =
-                    "all .8s ease";
-
-                signature.style.opacity = "1";
-
-                signature.style.transform =
-                    "translateY(0)";
-
-            }
-
-        },delay);
-
-        setTimeout(()=>{
-
-            showSection(voiceSection);
-
-            voiceSection.scrollIntoView({
-
-                behavior:"smooth"
-
-            });
-
-        },delay + 1800);
-
+}
     }
         /*==================================
     PLAY VOICE NOTE
