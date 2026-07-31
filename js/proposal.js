@@ -36,27 +36,22 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Hide everything except opening
-    letterSection.style.display = "none";
-    timelineSection.style.display = "none";
-    gallerySection.style.display = "none";
-    videoSection.style.display = "none";
-    voiceSection.style.display = "none";
-    endingSection.style.display = "none";
-
+  
     startStory.addEventListener("click", async () => {
 
         // Hide opening
         storyOpening.style.display = "none";
 
         // Show only the letter first
-letterSection.style.display = "block";
+// Show the letter
+letterSection.classList.add("showSection");
 
-timelineSection.style.display = "none";
-gallerySection.style.display = "none";
-videoSection.style.display = "none";
-voiceSection.style.display = "none";
-endingSection.style.display = "none";
+// Keep other sections hidden (CSS controls this)
+timelineSection.classList.remove("showSection");
+gallerySection.classList.remove("showSection");
+videoSection.classList.remove("showSection");
+voiceSection.classList.remove("showSection");
+endingSection.classList.remove("showSection");
 
         // Start music
         if (storyMusic) {
