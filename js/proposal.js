@@ -277,4 +277,124 @@ document.addEventListener("DOMContentLoaded", () => {
         },delay + 1800);
 
     }
+        /*==================================
+    PLAY VOICE NOTE
+    ==================================*/
+
+    playVoiceBtn.addEventListener("click", () => {
+
+        if (storyMusic && !storyMusic.paused) {
+
+            storyMusic.volume = 0.15;
+
+        }
+
+        voiceNote.play();
+
+        playVoiceBtn.disabled = true;
+
+    });
+
+
+
+
+
+    /*==================================
+    VOICE NOTE FINISHED
+    ==================================*/
+
+    voiceNote.addEventListener("ended", () => {
+
+        if (storyMusic) {
+
+            storyMusic.volume = 0.45;
+
+            storyMusic.pause();
+
+        }
+
+        if (endingMusic) {
+
+            endingMusic.volume = 0.35;
+
+            endingMusic.play().catch(() => {});
+
+        }
+
+        showSection(endingSection);
+
+        endingSection.scrollIntoView({
+
+            behavior: "smooth"
+
+        });
+
+        setTimeout(() => {
+
+            showSection(memorySection);
+
+            memorySection.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        }, 3000);
+
+    });
+
+
+
+
+
+    /*==================================
+    MEMORY BUTTON
+    ==================================*/
+
+    memoryButton.addEventListener("click", (event) => {
+
+        event.preventDefault();
+
+        window.open(
+            "https://photos.app.goo.gl/uWtiboqdjsFSoCwW9",
+            "_blank"
+        );
+
+    });
+
+
+
+
+
+    /*==================================
+    ENDING ANIMATION
+    ==================================*/
+
+    if (endingSection) {
+
+        endingSection.addEventListener("mouseenter", () => {
+
+            endingSection.style.transform = "scale(1.01)";
+
+        });
+
+        endingSection.addEventListener("mouseleave", () => {
+
+            endingSection.style.transform = "scale(1)";
+
+        });
+
+    }
+
+
+
+
+
+    /*==================================
+    PAGE READY
+    ==================================*/
+
+    console.log("Project Marion ❤️ loaded successfully.");
+
+});
   
