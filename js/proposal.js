@@ -106,15 +106,27 @@ function revealTimeline() {
         timelineSection.style.display === "none"
     ) {
 
-        timelineSection.style.display = "block";
-        timelineSection.style.opacity = "0";
-        timelineSection.style.transform = "translateY(40px)";
-        timelineSection.style.transition = "all 1s ease";
+       timelineSection.style.display = "block";
 
+timelineSection.style.marginTop = "120px";
+
+timelineSection.style.opacity = "0";
+
+timelineSection.style.transform = "translateY(40px)";
+
+timelineSection.style.transition = "all 1s ease";
         requestAnimationFrame(() => {
 
             timelineSection.style.opacity = "1";
             timelineSection.style.transform = "translateY(0)";
+            setTimeout(() => {
+
+    timelineSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}, 800);
 
         });
 
